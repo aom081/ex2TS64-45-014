@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", // กำหนดโฟลเดอร์สำหรับไฟล์ที่คอมไพล์
+    "rootDir": "./src", // กำหนดโฟลเดอร์สำหรับไฟล์ต้นฉบับ
+    "strict": true, // เปิดใช้ strict mode
+    "target": "ES6", // กำหนดเวอร์ชัน JavaScript ที่ต้องการคอมไพล์
+    "module": "CommonJS", // โมดูลระบบ (Node.js ใช้ CommonJS)
+    "esModuleInterop": true // รองรับการ import/export ของ ES6
+  },
+  "include": ["src/**/*"], // ระบุว่าให้คอมไพล์ไฟล์ในโฟลเดอร์ src
+  "exclude": ["node_modules"] // ไม่รวมโฟลเดอร์ node_modules
+}
