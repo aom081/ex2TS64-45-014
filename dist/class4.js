@@ -25,7 +25,7 @@ class Shape {
 exports.Shape = Shape;
 class Circle extends Shape {
     constructor(radius = 1.0, color, filled) {
-        super(color !== null && color !== void 0 ? color : "red", filled !== null && filled !== void 0 ? filled : true);
+        super(color, filled);
         this.radius = radius;
     }
     getRadius() {
@@ -35,7 +35,7 @@ class Circle extends Shape {
         this.radius = radius;
     }
     getArea() {
-        return Math.PI * this.radius * this.radius;
+        return Math.PI * Math.pow(this.radius, 2);
     }
     getPerimeter() {
         return 2 * Math.PI * this.radius;
@@ -47,7 +47,7 @@ class Circle extends Shape {
 exports.Circle = Circle;
 class Rectangle extends Shape {
     constructor(width = 1.0, length = 1.0, color, filled) {
-        super(color !== null && color !== void 0 ? color : "red", filled !== null && filled !== void 0 ? filled : true);
+        super(color, filled);
         this.width = width;
         this.length = length;
     }
@@ -75,21 +75,15 @@ class Rectangle extends Shape {
 }
 exports.Rectangle = Rectangle;
 class Square extends Rectangle {
-    constructor(side = 1.0, color = "red", filled = true) {
+    constructor(side = 1.0, color, filled) {
         super(side, side, color, filled);
     }
     getSide() {
-        return this.getWidth(); // ความกว้างและความยาวจะเท่ากัน
+        return this.getWidth();
     }
     setSide(side) {
-        super.setWidth(side); // ใช้ setWidth จากคลาสแม่
-        super.setLength(side); // ความยาวและความกว้างเท่ากัน
-    }
-    setWidth(width) {
-        this.setSide(width); // ใช้ setSide เพื่อทำให้ความกว้างและความยาวเท่ากัน
-    }
-    setLength(length) {
-        this.setSide(length); // ใช้ setSide เพื่อทำให้ความกว้างและความยาวเท่ากัน
+        this.setWidth(side);
+        this.setLength(side);
     }
     toString() {
         return `Square[${super.toString()}]`;
